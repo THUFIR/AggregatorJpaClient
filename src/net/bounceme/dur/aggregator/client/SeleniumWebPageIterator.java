@@ -29,7 +29,7 @@ public class SeleniumWebPageIterator {
 
     private void processLink(Link l) {
         log.fine(l.toString());
-        WebDriver driver = new FirefoxDriver(); //don't display
+        WebDriver driver = new FirefoxDriver();
         driver.get(l.getLink());
         driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS);
         String s = driver.getPageSource();
@@ -42,6 +42,6 @@ public class SeleniumWebPageIterator {
         p.setCreated(new Date());
         p.setLinkId(l.getId());
         p.setPage(s);
-        pageFacade.create(p); //page has no id..
+        pageFacade.create(p);
     }
 }

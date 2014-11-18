@@ -4,10 +4,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-import net.bounceme.dur.selenium.jpa.Link;
-import net.bounceme.dur.selenium.jpa.LinkFacade;
-import net.bounceme.dur.selenium.jpa.Page;
-import net.bounceme.dur.selenium.jpa.PageFacade;
+import net.bounceme.dur.jpa.entities.Link;
+import net.bounceme.dur.jpa.entities.Page;
+import net.bounceme.dur.jpa.facades.LinkFacade;
+import net.bounceme.dur.jpa.facades.PageFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -21,7 +21,7 @@ public class SeleniumWebPageIterator {
     }
 
     public void processLinks() {
-        List<Link> links = linkFacade.findAll();
+        List<Link> links = linkFacade.findEntities();
         for (Link l : links) {
             processLink(l);
         }
